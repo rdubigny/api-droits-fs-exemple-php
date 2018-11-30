@@ -1,0 +1,39 @@
+/*
+#    This file is part of the PHP example for FranceConnect and API des Droits Cnam
+#
+#    Copyright (C) 2015-2019 Eric Pommateau, Maxime Reyrolle, Arnaud Bétrémieux, Nicolas Krzyzanowski
+#
+#    This example is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This example is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this example.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+                                                                                                                      /* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+    padding-top: 3.5rem;
+}
+
+#user {
+    padding: 5px 0 5px 40px;
+    color: #ffffff;
+    margin-right: 10px;
+    background: url(/img/fc-avatar.png) left center no-repeat;
+    background-size: 30px;
+}
+
+pre {
+    font-size: 70%;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 1rem;
+}

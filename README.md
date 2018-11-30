@@ -1,4 +1,5 @@
 # api-droits-fs-exemple-php
+
 Application exemple d'appel à l'API des droits en tant que fournisseur de service France Connect.
 
 Cette application est une adaptation du code source de l'application d'exemple fournisseur de données php publiée par France Connect (https://github.com/france-connect/fs_exemple_php).
@@ -11,11 +12,11 @@ Attention à l'utilisation de mt_rand dans FranceConnect.class.php, qu'il faudra
 
 License : GPLv3
 
-## Installation pour tester l'API des droits de l'Assurance Maladie
+## Installation
 
 1. Obtenir un `client_id` et `secret_id` auprès de France Connect (https://partenaires.franceconnect.gouv.fr/monprojet/fournisseurs-services/nouveau)
 
-2. Renseigner vos `client_id`, `client_secret` et `url_callback` dans `LocalSettings.php`
+2. Renseigner vos `client_id`, `client_secret` et `url_callback` dans `settings/LocalSettings.php`
 
    `url_callback` correspond à l'URL sur lequel vous déployez l'exemple, suivi de `callback.php`
 
@@ -27,11 +28,11 @@ License : GPLv3
 
 5. Obtenir une `api-key` et l'url de l'API de test auprès de la Cnam dans le cadre du conventionnement
 
-6. Renseigner vos `api_cnam_api_key`, `api_cnam_base_url` dans `LocalSettings.php`
+6. Renseigner vos `api_cnam_api_key`, `api_cnam_base_url` dans `settings/LocalSettings.php`
 
 ## Configuration de l'application
 
-Le fichier `LocalSettings.php` utilise les variables d'environnement docker suivantes pour les appels vers France Connect et vers l'API des droits.
+Le fichier `settings/LocalSettings.php` utilise les variables d'environnement docker suivantes pour les appels vers France Connect et vers l'API des droits.
 ```
 FRANCECONNECT_BASE_URL: https://fcp.integ01.dev-franceconnect.fr/api/v1/
 FRANCECONNECT_CLIENT_ID: Fourni par France Connect
@@ -40,3 +41,12 @@ FRANCECONNECT_URL_CALLBACK: Configuré via France Connect
 API_CNAM_BASE_URL: Communiqué par la Cnam
 API_CNAM_API_KEY: Communiqué par la Cnam
 ```
+Vous pouvez valoriser directement les variables php sans utiliser Docker si vous le souhaitez.
+
+## Tester l'application avec des données de test
+
+1. Ajouter un utilisateur de test France Connect (https://fip1.integ01.dev-franceconnect.fr/user/create)
+
+2. Accéder à l'application de test et cliquer sur le bouton France Connect pour accéder à la page protégée
+
+3. Visualiser les données de test de l'API des Droits dans la page protégée
