@@ -230,7 +230,7 @@ require_once("init.php");
         </main>
 
         <footer class="container">
-            <p>Cnam 2018</p>
+            <p>Cnam Digital 2018</p>
         </footer>
 
         <!-- Bootstrap core JavaScript

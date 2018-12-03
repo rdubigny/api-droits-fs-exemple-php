@@ -78,20 +78,14 @@ if (isset($_SESSION['userinfo'])) {
         <div class="container">
             <!-- Example row of columns -->
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <h2>Fournisseur de service</h2>
                     <p>En tant que fournisseur de service France Connect, cette application vous permet de tester l'authentification de vos utilisateurs via le protocole OpenID Connect (Authorization code flow).</p>
                     <p><a class="btn btn-secondary" href="https://partenaires.franceconnect.gouv.fr/" role="button">Détail &raquo;</a></p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <h2>API des droits</h2>
                     <p>En tant que fournisseur de service conventionné avec la Cnam, cette application vous permet de tester l'accès à l'API des droits des assurés de l'assurance maladie.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">Détail &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Données de test</h2>
-                    <p></p>
-                    <p><a class="btn btn-secondary" href="#" role="button">Details &raquo;</a></p>
                 </div>
             </div>
             <hr>
@@ -99,7 +93,7 @@ if (isset($_SESSION['userinfo'])) {
     </main>
 
         <footer class="container">
-        <p>Cnam 2018</p>
+        <p>Cnam Digital 2018</p>
     </footer>
 
         <!-- Bootstrap core JavaScript
