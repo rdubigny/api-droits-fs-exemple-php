@@ -87,6 +87,23 @@ if (isset($_SESSION['userinfo'])) {
                     <h2>API des droits</h2>
                     <p>En tant que fournisseur de service conventionné avec la Cnam, cette application vous permet de tester l'accès à l'API des droits des assurés de l'assurance maladie.</p>
                 </div>
+                <div class="col-md-12">
+                    <h2>Démo</h2>
+                    <p>Vous pouvez tester cette application en choisissant le bouchon <strong>ameli.fr</strong> de la mire d'authentification France Connect.</p>
+                    <ul>
+                        <li>Login : 2780246102043</li>
+                        <li>Mot de passe : 1234</li>
+                    </ul>
+                    <p><img src="img/demo-fc-api.gif" width="100%"/></p>
+                </div>
+                <div class="col-md-12">
+                    <h2>Source</h2>
+                    <p>Le code source de cette application est disponible sur github.</p>
+                    <ul>
+                        <li><a href="https://github.com/assurance-maladie-digital/api-droits-fs-exemple-php">https://github.com/assurance-maladie-digital/api-droits-fs-exemple-php</a> </li>
+                    </ul>
+                </div>
+
             </div>
             <hr>
         </div> <!-- /container -->

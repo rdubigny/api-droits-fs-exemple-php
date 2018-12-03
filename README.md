@@ -12,6 +12,11 @@ Attention à l'utilisation de mt_rand dans FranceConnect.class.php, qu'il faudra
 
 License : GPLv3
 
+## Démo
+
+Vous pouvez tester cette application en cliquant sur le lien suivant :
+* http://fc-fc.1d35.starter-us-east-1.openshiftapps.com
+
 ## Installation
 
 1. Obtenir un `client_id` et `secret_id` auprès de France Connect (https://partenaires.franceconnect.gouv.fr/monprojet/fournisseurs-services/nouveau)
