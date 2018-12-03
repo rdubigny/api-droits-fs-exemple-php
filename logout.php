@@ -18,15 +18,20 @@
 
 require_once("init.php");
 
+$id_token = $_SESSION['full_access_token']['id_token'];
+$state = $_SESSION['state'];
+
+/* Déconnexion locale de l'application */
 session_destroy();
 
-/* Initialisation du client france connect */
+/* Initialisation du client france connect pour la déconnexion FC */
 $client_FranceConnect = new ClientFranceConnect(
     $france_connect_base_url,
     $france_connect_client_id,
     $france_connect_client_secret,
-    $france_connect_url_callback);
+    $france_connect_url_login_callback,
+    $france_connect_url_logout_callback);
 
-$client_FranceConnect->logout();
+$client_FranceConnect->logout($id_token);
 
-header("Location: index.php");
+//header("Location: " . $url_logout);

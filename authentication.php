@@ -23,7 +23,8 @@ $client_FranceConnect = new ClientFranceConnect(
     $france_connect_base_url,
     $france_connect_client_id,
     $france_connect_client_secret,
-    $france_connect_url_callback);
+    $france_connect_url_login_callback,
+    $france_connect_url_logout_callback);
 
 /* Ajout du scope pour le consentement de l'utilisateur */
 $scopes_consentement_utilisateur = array("droits_assurance_maladie");

@@ -27,7 +27,10 @@ $france_connect_client_id = getenv('FRANCECONNECT_CLIENT_ID');
 $france_connect_client_secret = getenv('FRANCECONNECT_CLIENT_SECRET');
 
 /* URL vers laquel est redirigé l'utilisateur après le login France Connect */
-$france_connect_url_callback = getenv('FRANCECONNECT_URL_CALLBACK');
+$france_connect_url_login_callback = getenv('FRANCECONNECT_URL_LOGIN_CALLBACK');
+
+/* URL vers laquel est redirigé l'utilisateur après le logout France Connect */
+$france_connect_url_logout_callback = getenv('FRANCECONNECT_URL_LOGOUT_CALLBACK');
 
 /* Paramètres du fournisseur de données */
 $api_cnam_base_url = getenv('API_CNAM_BASE_URL');

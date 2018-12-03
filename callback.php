@@ -23,15 +23,20 @@ $client_FranceConnect = new ClientFranceConnect(
     $france_connect_base_url,
     $france_connect_client_id,
     $france_connect_client_secret,
-    $france_connect_url_callback);
+    $france_connect_url_login_callback,
+    $france_connect_url_logout_callback);
 
 # Récupération de l'access token et de l'identité pivot
 $callback = array();
 $callback = $client_FranceConnect->callback();
+$_SESSION['code'] = $_REQUEST['code'];
 $_SESSION['userinfo'] = $callback['userinfo'];
 $_SESSION['access_token'] = $callback['access_token'];
 $_SESSION['full_access_token'] = $callback['full_access_token'];
 $access_token = $_SESSION['access_token'];
+
+# Vérification du consentement
+
 
 /* Initialisation du fournisseur de données */
 $api_cnam = new ClientAPICnam($api_cnam_api_key, $api_cnam_base_url, $access_token);
@@ -40,6 +45,12 @@ $api_cnam = new ClientAPICnam($api_cnam_api_key, $api_cnam_base_url, $access_tok
 # Cette vérification est effectuée côté API pour la réconciliation
 # Nous faisons l'appel ici pour illustration
 $_SESSION['checktoken_info'] = $client_FranceConnect->checktoken($access_token);
+
+# Vérification du consentement
+$_SESSION['consentement'] = false;
+if (in_array('droits_assurance_maladie', $_SESSION['checktoken_info']['scope'])) {
+    $_SESSION['consentement'] = true;
+}
 
 # Appels de l'API
 $result = $api_cnam->getMe();

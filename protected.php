@@ -17,6 +17,11 @@
 #    along with this example.  If not, see <http://www.gnu.org/licenses/>.
 
 require_once("init.php");
+
+if (!isset($_SESSION['userinfo'])){
+    header("Location: 403.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +31,7 @@ require_once("init.php");
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Fournisseur de service France-Connect</title>
+        <title>Application de test / Page protégée</title>
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -65,6 +70,18 @@ require_once("init.php");
 
         <main role="main">
             <div class="container">
+                <? if ($_SESSION['consentement']): ?>
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Consentement de l'utilisateur OK !</h4>
+                    <p>L'utilisateur a donné son consentement à l'utilisation de ses données pour cette démarche en ligne.</p>
+                </div>
+                <? else: ?>
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Consentement de l'utilisateur KO !</h4>
+                    <p>L'utilisateur n'a pas donné son consentement à l'utilisation de ses données pour cette démarche en ligne.</p>
+                </div>
+                <? endif; ?>
+                
                 <h1>Ma démarche en ligne</h1>
                 <p>Réalisez votre démarche en ligne grâce à France Connect et aux données de l'Assurance Maladie.</p>
                 <p>En tant que fournisseur de service vous avez accès à ces données via France Connect et l'API des droits.</p>

@@ -30,7 +30,7 @@ if (isset($_SESSION['userinfo'])) {
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Application de test / Accueil</title>
+        <title>Application de test / Déconnexion</title>
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -65,31 +65,16 @@ if (isset($_SESSION['userinfo'])) {
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="container">
-                <h1 class="display-3">Accueil</h1>
-                <p>Cette application vous permet de tester l'API des droits de l'assurance maladie via France Connect.</p>
+                <h1 class="display-3">Déconnexion OK</h1>
+                <p>Vous étes maintenant déconnecté de votre démarche en ligne et de France Connect.</p>
                 <p>
                     <form action='authentication.php' method='post'>
                         <input type="submit" value="S'identifier avec France Connect" style="background:url(img/fc_bouton_alt1_v2.png) no-repeat; width:224px; height:56px; font-size:0; border:0; cursor:pointer;"/>
                     </form>
                 </p>
+                <p><a class="btn btn-secondary" href="index.php" role="button">Revenir à l'accueil &raquo;</a></p>
             </div>
         </div>
-
-        <div class="container">
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Fournisseur de service</h2>
-                    <p>En tant que fournisseur de service France Connect, cette application vous permet de tester l'authentification de vos utilisateurs via le protocole OpenID Connect (Authorization code flow).</p>
-                    <p><a class="btn btn-secondary" href="https://partenaires.franceconnect.gouv.fr/" role="button">Détail &raquo;</a></p>
-                </div>
-                <div class="col-md-6">
-                    <h2>API des droits</h2>
-                    <p>En tant que fournisseur de service conventionné avec la Cnam, cette application vous permet de tester l'accès à l'API des droits des assurés de l'assurance maladie.</p>
-                </div>
-            </div>
-            <hr>
-        </div> <!-- /container -->
     </main>
 
         <footer class="container">

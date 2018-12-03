@@ -24,13 +24,15 @@ class ClientFranceConnect {
 	private $base_url;
 	private $client_id;
 	private $client_secret;
-	private $url_callback;
+	private $url_login_callback;
+    private $url_logout_callback;
 	
-	public function __construct($base_url, $client_id, $client_secret, $url_callback){
+	public function __construct($base_url, $client_id, $client_secret, $url_login_callback, $url_logout_callback){
 		$this->base_url = $base_url;
 		$this->client_id = $client_id;
 		$this->client_secret = $client_secret;
-		$this->url_callback = $url_callback;
+		$this->url_login_callback = $url_login_callback;
+        $this->url_logout_callback = $url_logout_callback;
 	}
 	
 	public function authenticationRedirect($sup_scope = array()){
@@ -44,7 +46,7 @@ class ClientFranceConnect {
 		$info=array("response_type"=>'code',
 					"client_id"=> $this->client_id,
 					"scope"=>$scope,
-					"redirect_uri"=>$this->url_callback,
+					"redirect_uri"=>$this->url_login_callback,
 					"state"=>urlencode($state),
 					"nonce"=>$_SESSION[self::OPENID_SESSION_NONCE]
 		);
@@ -126,7 +128,7 @@ class ClientFranceConnect {
 		$post_data = array(
 				"grant_type" =>"authorization_code",
 				"code" => $code,
-				"redirect_uri" => $this->url_callback,
+				"redirect_uri" => $this->url_login_callback,
 				"client_id"=>$this->client_id,
 				"client_secret"=>$this->client_secret
 		);
@@ -187,8 +189,9 @@ class ClientFranceConnect {
 		return json_decode($result,true);
 	}
 	
-	public function logout(){
-		$logout_url = $this->getURLforService("logout");
+	public function logout($id_token){
+        $logout_url = $this->getURLforService("logout");
+        $logout_url .= "id_token_hint=" . $id_token . "&post_logout_redirect_uri=" . $this->url_logout_callback;
 		header("Location: $logout_url");
 	}
 	
