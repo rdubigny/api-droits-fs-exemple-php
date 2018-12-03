@@ -36,7 +36,7 @@ Vous pouvez tester cette application en cliquant sur le lien suivant :
 
    Par exemple, si vous déployez dans https://127.0.0.1/api-droits-fs-exemple-php, l'url de callback doit être https://127.0.0.1/api-droits-fs-exemple-php/logout-ok.php
 
-5. Ajouter cette URL de callback dans FranceConnect (https://partenaires.franceconnect.gouv.fr/login)
+5. Ajouter les URL de callback et de logout dans FranceConnect (https://partenaires.franceconnect.gouv.fr/login)
 
 6. Ajouter le scope `droits_assurance_maladie` dans `authentication.php` pour la demande de consentement.
 
