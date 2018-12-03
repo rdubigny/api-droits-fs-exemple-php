@@ -15,25 +15,34 @@ License : GPLv3
 ## Démo
 
 Vous pouvez tester cette application en cliquant sur le lien suivant :
+
 * http://fc-fc.1d35.starter-us-east-1.openshiftapps.com
 
 ## Installation
 
 1. Obtenir un `client_id` et `secret_id` auprès de France Connect (https://partenaires.franceconnect.gouv.fr/monprojet/fournisseurs-services/nouveau)
 
-2. Renseigner vos `client_id`, `client_secret` et `url_callback` dans `settings/LocalSettings.php`
+2. Renseigner vos `client_id`, `client_secret` dans `settings/LocalSettings.php`
 
-   `url_callback` correspond à l'URL sur lequel vous déployez l'exemple, suivi de `callback.php`
+3. Renseigner `url_login_callback` dans `settings/LocalSettings.php`
+
+   `url_login_callback` correspond à l'URL sur lequel vous déployez l'exemple, suivi de `callback.php`
 
    Par exemple, si vous déployez dans https://127.0.0.1/api-droits-fs-exemple-php, l'url de callback doit être https://127.0.0.1/api-droits-fs-exemple-php/callback.php
 
-3. Ajouter cette URL de callback dans FranceConnect (https://partenaires.franceconnect.gouv.fr/login)
+4. Renseigner `url_logout_callback` dans `settings/LocalSettings.php`
 
-4. Ajouter le scope `droits_assurance_maladie` dans `authentication.php` pour la demande de consentement.
+   `url_logout_callback` correspond à l'URL sur lequel vous déployez l'exemple, suivi de `logout-ok.php`
 
-5. Obtenir une `api-key` et l'url de l'API de test auprès de la Cnam dans le cadre du conventionnement
+   Par exemple, si vous déployez dans https://127.0.0.1/api-droits-fs-exemple-php, l'url de callback doit être https://127.0.0.1/api-droits-fs-exemple-php/logout-ok.php
 
-6. Renseigner vos `api_cnam_api_key`, `api_cnam_base_url` dans `settings/LocalSettings.php`
+5. Ajouter cette URL de callback dans FranceConnect (https://partenaires.franceconnect.gouv.fr/login)
+
+6. Ajouter le scope `droits_assurance_maladie` dans `authentication.php` pour la demande de consentement.
+
+7. Obtenir une `api-key` et l'url de l'API de test auprès de la Cnam dans le cadre du conventionnement
+
+8. Renseigner vos `api_cnam_api_key`, `api_cnam_base_url` dans `settings/LocalSettings.php`
 
 ## Configuration de l'application
 
@@ -42,13 +51,14 @@ Le fichier `settings/LocalSettings.php` utilise les variables d'environnement do
 FRANCECONNECT_BASE_URL: https://fcp.integ01.dev-franceconnect.fr/api/v1/
 FRANCECONNECT_CLIENT_ID: Fourni par France Connect
 FRANCECONNECT_CLIENT_SECRET: Fourni par France Connect
-FRANCECONNECT_URL_CALLBACK: Configuré via France Connect
+FRANCECONNECT_URL_LOGIN_CALLBACK: Configuré via France Connect
+FRANCECONNECT_URL_LOGOUT_CALLBACK: Configuré via France Connect
 API_CNAM_BASE_URL: Communiqué par la Cnam
 API_CNAM_API_KEY: Communiqué par la Cnam
 ```
 Vous pouvez valoriser directement les variables php sans utiliser Docker si vous le souhaitez.
 
-## Tester l'application avec des données de test
+## Tester l'application avec vos données de test
 
 1. Ajouter un utilisateur de test France Connect (https://fip1.integ01.dev-franceconnect.fr/user/create)
 
