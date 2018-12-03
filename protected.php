@@ -18,9 +18,14 @@
 
 require_once("init.php");
 
+// Vérification de l'authentification
 if (!isset($_SESSION['userinfo'])){
     header("Location: 403.php");
 }
+
+// Récupération du consentement
+$consentement = false;
+$consentement = $_SESSION['consentement'];
 
 ?>
 <!DOCTYPE html>
@@ -70,17 +75,17 @@ if (!isset($_SESSION['userinfo'])){
 
         <main role="main">
             <div class="container">
-                <? if ($_SESSION['consentement']): ?>
+                <?php if ($consentement): ?>
                 <div class="alert alert-success" role="alert">
                     <h4 class="alert-heading">Consentement de l'utilisateur OK !</h4>
                     <p>L'utilisateur a donné son consentement à l'utilisation de ses données pour cette démarche en ligne.</p>
                 </div>
-                <? else: ?>
+                <?php else: ?>
                 <div class="alert alert-danger" role="alert">
                     <h4 class="alert-heading">Consentement de l'utilisateur KO !</h4>
                     <p>L'utilisateur n'a pas donné son consentement à l'utilisation de ses données pour cette démarche en ligne.</p>
                 </div>
-                <? endif; ?>
+                <?php endif; ?>
                 
                 <h1>Ma démarche en ligne</h1>
                 <p>Réalisez votre démarche en ligne grâce à France Connect et aux données de l'Assurance Maladie.</p>
