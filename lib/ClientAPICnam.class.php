@@ -30,7 +30,7 @@ class ClientAPICnam {
 
     private function getHeaders(){
         $curlWrapper = new CurlWrapper();
-        $curlWrapper->addHeader("X-Gravitee-Api-Key", $this->api_key);
+        $curlWrapper->addHeader("X-Api-Key", $this->api_key);
         $curlWrapper->addHeader("Authorization", "Bearer $this->access_token");
         return $curlWrapper;
     }
