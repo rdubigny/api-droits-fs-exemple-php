@@ -58,6 +58,28 @@ API_CNAM_API_KEY: Communiqué par la Cnam
 ```
 Vous pouvez valoriser directement les variables php sans utiliser Docker si vous le souhaitez.
 
+## Lancer le serveur avec Docker
+
+Vous pouvez lancer le serveur en une ligne de commande avec [Docker](https://docs.docker.com/install/) :
+
+```
+docker run --rm --name app -d -p 8080:80 \
+  -v "$PWD":/var/www/app/ \
+  -e FRANCECONNECT_BASE_URL='https://fcp.integ01.dev-franceconnect.fr/api/v1/' \
+  -e FRANCECONNECT_CLIENT_ID='211286433e39cce01db448d80181bdfd005554b19cd51b3fe7943f6b3b86ab6e' \
+  -e FRANCECONNECT_CLIENT_SECRET='2791a731e6a59f56b6b4dd0d08c9b1f593b5f3658b9fd731cb24248e2669af4b' \
+  -e FRANCECONNECT_URL_LOGIN_CALLBACK='http://localhost:8080/callback.php' \
+  romeoz/docker-apache-php
+```
+
+Votre application est disponible via : http://localhost:8080 .
+
+Pour stopper le serveur :
+
+```
+docker stop app
+```
+
 ## Tester l'application avec vos données de test
 
 1. Ajouter un utilisateur de test France Connect (https://fip1.integ01.dev-franceconnect.fr/user/create)
